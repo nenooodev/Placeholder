@@ -1,4 +1,4 @@
-# Contrato de equipo · <nombre del estudio>
+# Contrato de equipo · [Placeholder]
 
 ## Compromisos
 
