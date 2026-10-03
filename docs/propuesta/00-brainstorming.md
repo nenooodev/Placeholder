@@ -162,3 +162,51 @@ No se limitaría a hacer OCR y convertir el PDF en texto. El objetivo sería **r
 
 La idea se descartó porque se consideró un **proyecto demasiado específico**, con un público objetivo y un caso de uso demasiado limitado para justificar el desarrollo.
 ---
+
+
+
+
+
+
+
+# Cagómetro: Localizador colaborativo de baños
+
+**Idea:** Una aplicación móvil tipo mapa interactivo enfocada exclusivamente a encontrar, puntuar y reseñar baños públicos (ya sea de locales, bibliotecas...) cercanos en situaciones de urgencia.
+
+## 1. El problema que resuelve
+
+Estando fuera de casa es bastante difícil saber qué baños cercanos están abiertos, si el local permite el acceso sin consumir y, sobre todo, el estado real del servicio antes de entrar (higiene, pestillo funcional y si hay papel o no).
+
+### ¿Quién lo sufre?
+
+* **Población general:** Estudiantes, trabajadores (repartidores, transportistas, comerciales) y turistas.
+* **Personas con patologías digestivas o urinarias:** Afectados por Enfermedad Inflamatoria Intestinal (Crohn o síndrome del intestino irritable) o incontinencia.
+* **Familias y cuidadores:** Personas que acompañan a niños pequeños o a personas mayores con menor capacidad de retención.
+
+### ¿Con qué frecuencia?
+
+Es una necesidad impredecible. Mientras que el público general experimenta situaciones de urgencia imprevista en la vía pública **varias veces al mes**, para personas con patologías, mayores o trabajadores en ruta es una **fuente de ansiedad diaria**.
+
+### ¿Cuál es el impacto?
+
+* **Físico y de salud:** Aguantarse durante periodos largos causa dolor abdominal severo, estrés corporal y complicaciones digestivas.
+* **Económico:** Obliga a realizar pequeños gastos innecesarios (comprar un café o una botella de agua) únicamente para obtener acceso, una llave o el código del ticket del baño.
+
+### Evidencias recopiladas
+
+* **Experiencia de primera mano:** La situación que todo el mundo ha tenido, sufrir una indisposición repentina lejos de casa (experimentada por miembros del grupo y familiares directos, como tener que entrar a la desesperada a un bar desconocido esquivando al camarero, solo para descubrir que la puerta no tiene pestillo y no queda papel higiénico).
+* **Barreras en locales comerciales:** Siempre hay algun cartel disuasorio en hostelería (*"Servicio exclusivo para clientes"* o cerraduras con teclado numérico asociado al ticket de compra), lo que bloquea el acceso en momentos críticos.
+
+---
+
+## 2. Diferenciación
+
+A diferencia de Google Maps, no busca calificar la comida ni la atención del negocio, sino el servicio higiénico: limpieza comunitaria, falta de papel, necesidad de consumición y facilidad de acceso.
+
+---
+
+## 3. Por qué se descartó
+
+La idea fue descartada por la **dependencia de los datos aportados por los usuarios**.
+
+El primer usuario que descargue la aplicación se encontraría con un mapa completamente vacío. Sin una base de datos inicial ya precargada, la plataforma no aportaría ninguna utilidad real desde el día 1, provocando el abandono inmediato del servicio.
