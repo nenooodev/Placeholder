@@ -37,3 +37,12 @@ Es un problema **diario y continuo**. Se repite al menos dos veces al día (al m
 - Las conversaciónes que yo nsuelo tener con mis amigas que viven "independizadas" también o personas que he conocido viviendo fuera de casa, hablando de que suelen tener la nevera vacía o que les da pereza pensar que cocinar.
 
 - El desecho recurrente de comida en los pisos compartido porque nadie planeó cómo aprovecharla a tiempo.
+
+## 6. User personas
+
+- Usuario principal: Universitarios y jóvenes recién independizados, por las razones establecidas más arriba.
+- Usuario secundario: Personas adultas de clase baja con una jornada laboral intensa que no les deja tiempo para nada más
+
+  ## 7. Casos de uso
+
+  
