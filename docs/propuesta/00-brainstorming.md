@@ -91,3 +91,58 @@ Se puede fijar el dinero exacto que hay disponible a la semana:
 > **Presupuesto semanal:** 23,50 €
 
 La app se adapta a esa cantidad en lugar de asumir presupuestos estándar que no se ajustan a la realidad económica de un estudiante.
+---
+
+# Notas de la comunidad para detectar contenido IA
+
+**Idea:** Una extensión de Chrome que añade a las principales redes sociales una capa de *“Notas de la comunidad”* para que los usuarios puedan marcar publicaciones que consideren generadas o manipuladas mediante IA.
+
+## Problema que resuelve
+
+Cada vez es más difícil distinguir entre contenido real y contenido generado por IA, especialmente para personas que no tienen conocimientos técnicos o no están acostumbradas a identificar estas señales.
+
+La extensión permitiría que la propia comunidad **señale contenido sospechoso**. Si una publicación recibe varias marcas coincidentes, se mostraría una **advertencia visible** antes de que otros usuarios interactúen con ella.
+
+> **Ejemplo:** “Varios usuarios han señalado este contenido como posiblemente generado por IA.”
+
+## ¿Para quién?
+
+* Personas jóvenes que consumen contenido diariamente en redes sociales.
+* Usuarios con poca experiencia identificando contenido generado por IA.
+* Personas mayores o menos familiarizadas con las nuevas herramientas de IA.
+* Cualquier usuario que quiera una capa adicional de contexto antes de confiar o compartir una publicación.
+
+## Diferenciación
+
+En lugar de intentar detectar automáticamente todo el contenido mediante un algoritmo, el sistema aprovecharía la **inteligencia colectiva de los propios usuarios**, siguiendo un modelo similar al de las Notas de la Comunidad.
+
+## Por qué se descartó
+
+La idea se descartó principalmente por la **dificultad de conseguir compatibilidad con las aplicaciones móviles nativas** de las principales redes sociales. Una extensión de Chrome puede funcionar razonablemente bien en la web, pero no puede integrarse de la misma manera en las apps de iOS y Android, limitando considerablemente su alcance.
+---
+
+# Conversor de libros escaneados a libros digitales
+
+**Idea:** Una herramienta capaz de convertir un PDF escaneado de un libro en un libro digital completamente interactivo, incluyendo libros de texto. Además de reconocer y estructurar el contenido, permitiría **rellenar ejercicios directamente desde el dispositivo**.
+
+## Problema que resuelve
+
+Muchos libros antiguos o materiales educativos solo están disponibles como PDFs escaneados, lo que dificulta leerlos, buscar contenido, editar ejercicios o utilizarlos cómodamente en dispositivos digitales.
+
+La herramienta convertiría automáticamente estos documentos en un formato digital estructurado, manteniendo textos, imágenes, ejercicios y otros elementos del libro.
+
+## ¿Para quién?
+
+* Estudiantes que utilizan libros de texto en PDF.
+* Personas que trabajan con libros antiguos o digitalizados.
+* Centros educativos que quieran adaptar materiales físicos a formatos digitales.
+* Usuarios que prefieran estudiar desde una tablet u ordenador.
+
+## Diferenciación
+
+No se limitaría a hacer OCR y convertir el PDF en texto. El objetivo sería **reconstruir la estructura del libro**, identificando ejercicios, preguntas y campos de respuesta para convertirlos en elementos interactivos.
+
+## Por qué se descartó
+
+La idea se descartó porque se consideró un **proyecto demasiado específico**, con un público objetivo y un caso de uso demasiado limitado para justificar el desarrollo.
+---
