@@ -93,6 +93,15 @@ Se puede fijar el dinero exacto que hay disponible a la semana:
 La app se adapta a esa cantidad en lugar de asumir presupuestos estándar que no se ajustan a la realidad económica de un estudiante.
 ---
 
+
+
+
+
+
+
+
+
+
 # Notas de la comunidad para detectar contenido IA
 
 **Idea:** Una extensión de Chrome que añade a las principales redes sociales una capa de *“Notas de la comunidad”* para que los usuarios puedan marcar publicaciones que consideren generadas o manipuladas mediante IA.
@@ -117,9 +126,16 @@ La extensión permitiría que la propia comunidad **señale contenido sospechoso
 En lugar de intentar detectar automáticamente todo el contenido mediante un algoritmo, el sistema aprovecharía la **inteligencia colectiva de los propios usuarios**, siguiendo un modelo similar al de las Notas de la Comunidad.
 
 ## Por qué se descartó
-
 La idea se descartó principalmente por la **dificultad de conseguir compatibilidad con las aplicaciones móviles nativas** de las principales redes sociales. Una extensión de Chrome puede funcionar razonablemente bien en la web, pero no puede integrarse de la misma manera en las apps de iOS y Android, limitando considerablemente su alcance.
+
+
 ---
+
+
+
+
+
+
 
 # Conversor de libros escaneados a libros digitales
 
