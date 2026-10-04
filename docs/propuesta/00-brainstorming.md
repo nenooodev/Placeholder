@@ -210,3 +210,65 @@ A diferencia de Google Maps, no busca calificar la comida ni la atención del ne
 La idea fue descartada por la **dependencia de los datos aportados por los usuarios**.
 
 El primer usuario que descargue la aplicación se encontraría con un mapa completamente vacío. Sin una base de datos inicial ya precargada, la plataforma no aportaría ninguna utilidad real desde el día 1, provocando el abandono inmediato del servicio.
+
+---
+
+
+
+
+
+# SportFeed: Agregador y personalizador de actualidad deportiva multicanal
+
+Idea: Una aplicación móvil que centraliza, categoriza y filtra automáticamente artículos periodísticos, análisis y vídeos de redes sociales (TikTok, Instagram, YouTube, X) según cada disciplina deportiva, permitiendo al usuario configurar un feed hiperpersonalizado con notificaciones a la carta.
+
+---
+
+## 1. El problema que resuelve
+
+La información deportiva actual está fragmentada en decenas de periódicos digitales, blogs especializados y plataformas de redes sociales. Para seguir la actualidad de deportes no tan masivos o de múltiples disciplinas a la vez, el usuario pierde demasiado tiempo navegando entre distintas plataformas y filtrando contenido irrelevante o repetitivo.
+
+### ¿Quién lo sufre?
+
+Aficionados multideporte y de deportes minoritarios: Seguidores del motor, tenis, baloncesto, deportes de contacto o eSports que no encuentran suficiente cobertura en los medios tradicionales.
+
+Consumidores de contenido en redes sociales: Usuarios que prefieren informarse mediante clips cortos, análisis tácticos en vídeo o hilos de noticias sin tener que lidiar con los algoritmos genéricos de cada red social.
+
+Creadores de contenido y profesionales del sector: Periodistas, analistas y creadores que necesitan monitorizar la actualidad y las tendencias de una disciplina específica en tiempo real.
+
+### ¿Con qué frecuencia?
+
+Es una necesidad recurrente y diaria. Los aficionados consultan la actualidad deportiva varias veces al día (durante desplazamientos, descansos o eventos en directo) para mantenerse informados de las últimas horas, fichajes y resultados.
+
+
+
+### ¿Cuál es el impacto?
+
+Pérdida de tiempo y sobreinformación: Requerir el uso de 4 o 5 aplicaciones distintas para enterarse de la actualidad de dos deportes genera fatiga digital.
+
+Invisibilización de disciplinas: Los deportes con menor masa social quedan relegados al fondo de las portadas de los diarios genéricos en favor del fútbol de primera división.
+
+Ruido algorítmico: Las redes sociales priorizan el contenido viral por encima del contenido informativo especializado que realmente busca el usuario.
+
+
+
+### Evidencias recopiladas
+
+Experiencia de primera mano: La frustración recurrente de intentar seguir la actualidad de un deporte específico (como la Fórmula 1 o el pádel) y recibir notificaciones solo sobre polémicas de fútbol o contenido de entretenimiento no solicitado.
+
+Dispersión de formatos: Seguir a un deportista o competición exige revisar X para comunicados oficiales, YouTube para resúmenes largos y TikTok/Instagram para momentos destacados y análisis rápidos.
+
+---
+
+## 2. Diferenciación
+
+A diferencia de los lectores de noticias tradicionales (como Feedly o Google News) o las propias redes sociales, la app categoriza el contenido combinando medios de comunicación tradicionales con publicaciones de redes sociales mediante etiquetas por deporte, competición y atleta. Además, ofrece un control granular de notificaciones donde el usuario define exactamente de qué deporte y tipo de evento (fichajes, resultados, análisis) desea recibir alertas.
+
+---
+
+## 3. Por qué se descartó
+
+La idea fue descartada por la alta complejidad técnica de integración y los bloqueos de API de las plataformas de redes sociales.
+
+A diferencia de los medios digitales tradicionales que ofrecen feeds RSS abiertos, plataformas como Instagram, TikTok y X imponen restricciones severas y costes elevados para extraer su contenido mediante API oficiales. Depender del raspado de datos (web scraping) no oficial generaría fallos constantes en la aplicación cada vez que las redes actualizasen sus plataformas, haciendo inviable mantener un feed estable y en tiempo real.
+
+---
