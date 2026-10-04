@@ -1,5 +1,15 @@
 # Apañao: Análisis de la Necesidad
 
+## Introducción
+
+Este documento recoge el análisis previo para el desarrollo de **Apañao**, un asistente pensado para hacer llevadera la comida diaria en pisos compartidos o en solitario, sin presupuestos altos ni complicaciones innecesarias.
+
+A lo largo de los siguientes apartados se desglosa el contexto completo del proyecto:
+- Empezamos con **el problema real**, a quién lo causa y su impacto diario en el bolsillo y la salud.
+- Definimos los **perfiles de usuario** y los **casos de uso** más habituales (desde el típico "no sé qué comer con 4 cosas" hasta cuadrar la compra semanal con 25 €).
+- Analizamos **qué ofrece el mercado actual**, detectando dónde fallan las soluciones que existen a día de hoy y qué oportunidades dejan sin tener muy en cuenta.
+- Terminamos con la **decisión sobre la viabilidad del proyecto** y nuestra **propuesta de valor**, sintetizando qué hace diferente a **Apañao** frente a cualquier otra herramienta.
+
 ## 1. El Problema: ¿Qué nos quita el sueño cada día?
 
 Vivir por primera vez fuera de casa (ya sea en un piso de estudiantes o en solitario) viene con un curso intensivo obligatorio: **la gestión de la comida diaria**.
@@ -208,10 +218,18 @@ El mercado actual ofrece herramientas de recetas o planificadores nutricionales,
 
 ---
 
-## 12. Propuesta de Valor Única (PVU)
+## 12. Propuesta de Valor
 
-> «A **los estudiantes universitarios y jóvenes recién independizados** les pasa que **sufren un estrés diario y un gasto excesivo para organizarse las comidas con poco dinero y tiempo**.»
->
-> «Hoy usan **apps de recetas tradicionales o improvisación directa**, que fallan en **asumir despensas llenas, requerir ingredientes caros, ignorar el presupuesto real y no ayudar con la gestión del congelador o la convivencia**.»
->
-> «Nosotros les damos **Apañao: el asistente pragmático de cocina que transforma lo que te queda en la nevera o tu presupuesto exacto (ej. 25 €) en menús rápidos, sin desperdicio y adaptados a la vida en piso compartido**.»
+> «Para **estudiantes y jóvenes que viven por su cuenta** y están **frustrados por el estrés diario de no saber qué comer, tirar comida y gastar de más**, a diferencia de las **apps de recetas tradicionales o la improvisación sobre la marcha** —que exigen ingredientes caros, asumen despensas llenas y se olvidan por completo de los táperes y los pisos compartidos—,
+> 
+> **Apañao** es **el asistente práctico que te saca una comida en 10 minutos con lo que ya tienes en casa, te avisa para que no se te quede el táper congelado y te ajusta la compra al céntimo según tu presupuesto real.**»
+
+---
+
+### Lo que hace diferente a Apañao:
+
+- **Compras con presupuesto cerrado:** No te pedimos que gastes de más; si tienes 20 € para la semana, la lista se adapta a básicos y marcas blancas.
+- **Cocinar con lo que hay:** Prioriza gastar lo que está a punto de ponerse malo en la nevera antes de decirte que compres nada nuevo.
+- **Control de táperes:** Te avisa la noche antes para pasar la comida del congelador a la nevera, evitando que acabes pidiendo comida por no tener nada listo.
+- **Modo piso compartido:** Despensa y lista común para no comprar cosas repetidas ni tener lios con los compañeros de piso.
+- **Cero postureo:** Recetas directas, cortas y pensadas para cuando tienes 10 minutos y pocas ganas de fregar.
