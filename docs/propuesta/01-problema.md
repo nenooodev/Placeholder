@@ -158,3 +158,60 @@ Situación: Quieres mejorar tus hábitos alimenticios, pero no puedes permitirte
 Apañao: Propone alternativas utilizando productos económicos y habituales, adaptando las comidas a tus objetivos y presupuesto.
 
 Resultado: Comer mejor no implica necesariamente aumentar el gasto de la compra.
+
+## 8. Análisis de Competencia
+
+Analizamos tres soluciones actuales del mercado que abordan aspectos del problema (recetarios dinámicos, gestión de despensa y planificación de compras/menús), extrayendo sus fortalezas y sus puntos críticos reales según las reseñas negativas de sus usuarios.
+
+### 1. Noodle (antes Cookpad / apps de recetas por ingredientes)
+* **Fortalezas:** Excelente interfaz visual, motor de búsqueda por ingredientes disponibles, enfocado en platos rápidos (20 minutos o menos) y hábitos saludables.
+* **Debilidades (Reseñas 1★):** Muro de pago (*paywall*) agresivo que bloquea la búsqueda avanzada por ingredientes; asume condimentos o productos secundarios "básicos" que un estudiante no suele tener; no gestiona el presupuesto ni calcula el coste de la compra.
+
+### 2. SuperCook
+* **Fortalezas:** Gran base de datos global de recetas; inventario detallado de despensa que cruza cientos de miles de opciones.
+* **Debilidades (Reseñas 1★):** Interfaz obsoleta y poco intuitiva; sugiere recetas complejas con técnicas o utensilios poco realistas; no contempla la logística del táper, la comida congelada, los pisos compartidos ni el límite presupuestario semanal.
+
+### 3. Planifood / Mealime
+* **Fortalezas:** Automatizan la lista de la compra semanal según un menú planificado; optimizan el tiempo de cocinado.
+* **Debilidades (Reseñas 1★):** Sugieren ingredientes caros, exóticos o difíciles de encontrar en supermercados de descuento (como Mercadona, Día o Lidl); inflexibles cuando solo se quiere improvisar con "cuatro cosas"; no abordan la convivencia en pisos compartidos.
+
+---
+
+## 9. Identificación de Oportunidades
+
+El mercado actual ofrece herramientas de recetas o planificadores nutricionales, pero **ninguna resuelve el problema desde la restricción económica y la logística del estudiante**. Las principales oportunidades detectadas son:
+
+1. **Optimización por Presupuesto Real (Supermercado Local):** Diseñar menús ajustados a un límite exacto (ej. 25 €/semana) utilizando precios de marca blanca y productos básicos de supermercados habituales.
+2. **Gestión del "Síndrome del Táper y Congelador":** Incluir avisos para descongelar a tiempo y registrar raciones ya cocinadas para evitar compras innecesarias.
+3. **Modo "Despensa Compartida":** Módulo colaborativo para sincronizar la nevera común entre compañeros de piso y evitar comprar productos duplicados.
+4. **Cero Asunciones Culinarias:** Recetas explicadas sin tecnicismos ("fuego medio-alto", sin necesidad de balanza de precisión o utensilios avanzados).
+
+---
+
+## 10. Matriz Comparativa de Funcionalidades
+
+| Característica / Necesidad | Noodle | SuperCook | Mealime | Apañao |
+| :--- | :---: | :---: | :---: | :---: |
+| **Búsqueda por ingredientes sueltos** | Sí *(limitado)* | Sí | Parcial | **Sí (priorizando caducidad)** |
+| **Filtro por presupuesto máximo (€)** | No | No | No | **Sí (Límite semanal/compra)** |
+| **Control de tápers / congelador** | No | No | No | **Sí (Alertas y registro)** |
+| **Despensa compartida (Piso)** | No | No | No | **Sí (Multiusuario)** |
+| **Recetas para novatos (Poco equipamiento)** | Media | Baja | Media | **Alta (Pasos ultra-simples)** |
+
+---
+
+## 11. Punto de Control: Decision Go / No-Go
+
+> **DECISIÓN: SEGUIR ADELANTE (GO)**
+
+* **Justificación:** La competencia se enfoca en "comer bonito" o "comer sano", pero desatiende la "supervivencia doméstica eficiente". Existe un hueco desatendido en la intersección entre **ahorro estricto + logística del estudiante + simplicidad de preparación**. Ninguna app dominante integra el control de gastos de supermercado con la gestión práctica de táperes y convivencia.
+
+---
+
+## 12. Propuesta de Valor Única (PVU)
+
+> «A **los estudiantes universitarios y jóvenes recién independizados** les pasa que **sufren un estrés diario y un gasto excesivo para organizarse las comidas con poco dinero y tiempo**.»
+>
+> «Hoy usan **apps de recetas tradicionales o improvisación directa**, que fallan en **asumir despensas llenas, requerir ingredientes caros, ignorar el presupuesto real y no ayudar con la gestión del congelador o la convivencia**.»
+>
+> «Nosotros les damos **Apañao: el asistente pragmático de cocina que transforma lo que te queda en la nevera o tu presupuesto exacto (ej. 25 €) en menús rápidos, sin desperdicio y adaptados a la vida en piso compartido**.»
