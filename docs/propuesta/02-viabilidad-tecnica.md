@@ -1,4 +1,6 @@
- # FUNCIONALIDADES PRINCIPALES
+# Viabilidad técnica Apañao
+ 
+ ## FUNCIONALIDADES PRINCIPALES
 
 **Entre 10 y 20 funcionalidades principales de Apañao:**
 
@@ -62,7 +64,7 @@
 20. **Gestión de favoritos:**  
       El usuario puede marcar una receta como favoritapara tenerla siempre accesible rápidamente.
 
-# MUST HAVE
+### MUST HAVE
 
 *Obligatorias, sin esto no funciona la app*  
 
@@ -88,7 +90,7 @@ Las funcionalidades escenciales de **Apañao**, son las siguientes:
 
 
 
-# SHOULD HAVE
+### SHOULD HAVE
 
 *Aportan bastante valor y completan la experiencia principal, pero la app podría seguir funcionando sin ellas*
 
@@ -109,7 +111,7 @@ Las funcionalidades escenciales de **Apañao**, son las siguientes:
 
 
 
-# COULD HAVE
+### COULD HAVE
 
 *Funcionalidades secundarias o mejoras que mejoran la comodidad del usuario si el calendario de desarrollo lo permite*
 
@@ -119,7 +121,7 @@ Las funcionalidades escenciales de **Apañao**, son las siguientes:
 
 
 
-# WON'T HAVE
+### WON'T HAVE
 
 *Características más avanzadas que no se añadirán en esta primera versión*
 
@@ -127,7 +129,7 @@ Las funcionalidades escenciales de **Apañao**, son las siguientes:
 
 
 
-# DEFINICIÓN DEL MVP
+## DEFINICIÓN DEL MVP
 
 En este apartado definimos el prodcuto mínimo viable de nuestra aplicación ***Apañao***:
 
@@ -144,7 +146,7 @@ La aplicación detecta automáticamente qué alimentos faltan para los menús y 
 
 
 
-# **Requisitos que forman parte del MVP:**
+### **Requisitos que forman parte del MVP:**
 
 Los requisitos indispensables sin los cuales este recorrido mínimo se rompe y no funciona son exclusivamente nuestras funcionalidades **Must have**:
 
@@ -167,3 +169,79 @@ Los requisitos indispensables sin los cuales este recorrido mínimo se rompe y n
 - Consulta de la Lista de la Compra
 
 *Todo lo demás (como el control de tuppers, las sugerencias automáticas avanzadas de recetas, el histórico o las alertas de caducidad) queda fuera de esta primera versión (MVP), ya que el usuario puede completar su objetivo principal sin ellas.*
+
+## ANÁLISIS DE REQUISITOS TÉCNICOS
+
+### 1. Frontend (React)
+
+Para garantizar una experiencia rápida, reactiva y fluida en dispositivos móviles, utilizaremos (en la medida de lo posible y si es completamente necesario) las siguientes bibliotecas dentro del entorno **React** (vía Vite o Create React App):
+
+| Biblioteca | Función / Ámbitos | Justificación y Por Qué la Necesitamos |
+| ----- | ----- | ----- |
+| **React Router (v6+)** | Navegación y Enrutamiento | Gestión de rutas dinámicas (pantallas de despensa, planificador, lista de la compra, recetas y tique). Permite la navegación fluida sin recargar la página (*Single Page Application*). |
+| **Zustand** (o **Context API**) | Gestión de Estado Global | Manejo simplificado y ligero del estado del cliente (despensa temporal, filtros de recetas y carrito de la compra activo) antes o entre sincronizaciones con la API de Node.js. |
+| **Axios** | Cliente HTTP | Gestión de peticiones hacia nuestro backend en Node.js/Express (obtención de recetas, actualización de inventario, registro/login). Facilita interceptores para el envío de tokens (JWT) y manejo centralizado de errores. |
+| **TanStack Query (React Query)** | Gestión de Peticiones y Caché | Optimiza las peticiones a la API Express, evitando llamadas repetitivas al servidor, gestionando la caché de recetas/productos y refrescando los datos automáticamente cuando el usuario interactúa. |
+| **Tailwind CSS + Lucide React** | Estilos e Iconos | Diseño *mobile-first* ágil, adaptado a interfaces simples para jóvenes, e integración de iconografía ligera y clara para la gestión de Nevera, Táper, Monedas y Presupuesto. |
+
+---
+
+### 2. Backend (Node.js + Express)
+
+
+---
+
+### 3. Base de Datos (MongoDB)
+
+
+---
+
+### 4. Infraestructura y Despliegue Cloud (Stack MERN)
+
+Se plantea una arquitectura dividida (*Decoupled Architecture*) con coste **$0/mes** durante la fase de prototipo y validación.
+
+```
+                  ┌─────────────────────────────────┐
+                  │          Vercel (Free)          │
+                  │   Aplicación React (Frontend)   │
+                  └────────────────┬────────────────┘
+                                   │  Peticiones API (REST/HTTP)
+                                   ▼
+                  ┌─────────────────────────────────┐
+                  │     Render / Railway (Free)     │
+                  │    Backend Express (Node.js)    │
+                  └────────────────┬────────────────┘
+                                   │  (Futuro)
+                                   ▼
+                   [ MongoDB Atlas - Free Tier ]
+```
+
+### Unidades de Despliegue y Planes Gratuitos
+
+#### 1. Frontend (React)
+* **Plataforma seleccionada:** **Vercel** *(o Netlify)*.
+* **Por qué:** Despliegue continuo automático desde GitHub, CDN global rápida para aplicaciones web estáticas/SPAs.
+* **Condiciones del Plan Gratuito (Vercel Hobby):**
+  * **Ancho de banda:** 100 GB/mes.
+  * **Límites:** Totalmente suficiente para prototipos y miles de usuarios iniciales sin ningún coste.
+
+#### 2. Backend (Node.js / Express API)
+* **Plataforma seleccionada:** **Render** *(opción alternativa: Railway / Koyeb)*.
+* **Por qué:** Permite desplegar servidores Web Services en Node.js de forma directa desde repositorios Git.
+* **Condiciones del Plan Gratuito (Render Free Instance):**
+  * **RAM / CPU:** 512 MB RAM, CPU compartida.
+  * **Comportamiento:** El servicio entra en "reposo" (*spin down*) tras 15 minutos de inactividad, tardando unos 20-30 segundos en despertar en la primera petición tras el estado de reposo (comportamiento habitual y aceptable en fases de prueba/evaluación académica).
+
+---
+
+### Resumen de Viabilidad Económica
+
+* **Frontend (React):** 0 € / mes (Vercel)
+* **Backend (Node.js + Express):** 0 € / mes (Render)
+* **Coste Total Operativo:** **0 € / mes**
+
+> **Conclusión técnica:** El uso del stack **MERN** desplegado de forma independiente en plataformas SaaS especializadas (Vercel + Render) garantiza una arquitectura profesional, escalable y con coste cero durante la validación de la idea.
+
+
+
+
