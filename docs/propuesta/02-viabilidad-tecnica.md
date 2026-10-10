@@ -317,8 +317,6 @@ Para evitar inconsistencias y proteger la información personal, se aplicarán l
 - **Índices de consulta:** se crearán índices para `users.email` y para las referencias `userId` de las colecciones principales. En función de las consultas definitivas, se podrán añadir índices compuestos por usuario y fecha.
 - **Trazabilidad temporal:** los campos `createdAt` y `updatedAt`, gestionados mediante Mongoose, facilitarán conocer cuándo se creó o modificó un documento.
 
-La colección de recetas no se considera imprescindible para el MVP. Si la aplicación obtiene recetas desde una API externa, se podrán almacenar los datos esenciales de cada receta dentro del menú semanal. Si más adelante se necesita un catálogo propio, caché de recetas, favoritos o un histórico, se podrá incorporar una colección `recipes` sin modificar la arquitectura principal.
-
 ### 3. Base de Datos (MongoDB)
 
 
