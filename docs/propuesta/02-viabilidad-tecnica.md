@@ -277,7 +277,6 @@ erDiagram
         ObjectId userId FK
         string name
         number quantity
-        string unit
         string location
         date expirationDate
         date createdAt
@@ -299,7 +298,7 @@ erDiagram
         ObjectId userId FK
         string name
         array items
-        string status
+         enum status
         date createdAt
         date updatedAt
     }
