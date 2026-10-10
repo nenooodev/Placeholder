@@ -256,7 +256,7 @@ El siguiente diagrama representa las relaciones propuestas entre las cuatro cole
 
 ```mermaid
 erDiagram
-    USERS ||--o{ PANTRY_ITEMS : contiene
+    USERS ||--o{ INGREDIENTS : tiene
     USERS ||--o{ MENUS : planifica
     USERS ||--o{ SHOPPING_LISTS : gestiona
 
@@ -266,14 +266,13 @@ erDiagram
         string passwordHash
         string name
         array allergies
-        array intolerances
         array likedFoods
         array dislikedFoods
         date createdAt
         date updatedAt
     }
 
-    PANTRY_ITEMS {
+    INGREDIENTS {
         ObjectId _id PK
         ObjectId userId FK
         string name
