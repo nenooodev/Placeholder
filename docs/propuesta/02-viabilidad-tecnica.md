@@ -188,8 +188,137 @@ Para garantizar una experiencia rápida, reactiva y fluida en dispositivos móvi
 
 ### 2. Backend (Node.js + Express)
 
+Para gestionar la lógica de negocio de **Apañao**, utilizaremos **Node.js con Express**, desarrollando una API REST que actuará como intermediaria entre el frontend en React y la base de datos MongoDB. El backend será responsable de gestionar las cuentas de usuario, controlar el acceso a los datos personales, administrar la despensa y coordinar la planificación de menús con la generación de la lista de la compra.
+
+| Biblioteca / Tecnología | Función / Ámbitos | Justificación y Por Qué la Necesitamos |
+| ----- | ----- | ----- |
+| **Node.js** | Entorno de ejecución del servidor | Permite ejecutar JavaScript en el backend y utilizar el mismo lenguaje en toda la aplicación, facilitando el desarrollo y el mantenimiento del proyecto. |
+| **Express.js** | Servidor y API REST | Gestiona las rutas HTTP y las peticiones procedentes de React. Permitirá implementar las operaciones CRUD (*Create, Read, Update, Delete*) necesarias para administrar los ingredientes, los menús y las listas de la compra. |
+| **Mongoose** | Modelado y acceso a MongoDB | Facilita la definición de esquemas, la validación de documentos y las consultas a la base de datos. También permite establecer referencias entre usuarios, ingredientes, menús y listas de la compra. |
+| **JSON Web Token (JWT)** | Autenticación y autorización | Permitirá identificar a los usuarios autenticados mediante tokens firmados. El backend comprobará el token en las rutas privadas para garantizar que cada usuario solo pueda acceder a sus propios datos. |
+| **bcrypt** (o bcryptjs) | Protección de contraseñas | Permite almacenar las contraseñas mediante un hash seguro, evitando guardar las contraseñas originales en la base de datos. |
+| **Zod** (o express-validator) | Validación de datos de la APO | Comprueba que los datos recibidos desde el frontend tienen el formato esperado antes de procesarlos o guardarlos, reduciendo errores y peticiones inválidas. |
+| **dotenv** | Gestión de variables de entorno | Permite configurar de forma segura parámetros como la URL de MongoDB, el secreto de firma de JWT y las credenciales de servicios externos, sin incluirlos directamente en el código fuente. |
+| **Helmet y express-rate-limit** | Seguridad de la API | Helmet configura cabeceras HTTP de seguridad y express-rate-limit limita el número de peticiones, especialmente en las rutas de registro e inicio de sesión, para reducir ciertos abusos y ataques automatizados. |
+
+#### Autenticación y gestión del sistema de cuentas
+
+Se utilizará un sistema de **autenticación propia basado en correo electrónico, contraseña y JWT**, integrado en el backend mediante Express. No será necesario depender de un proveedor externo de identidad para el MVP.
+
+El funcionamiento será el siguiente:
+
+1. **Registro:** el usuario introduce su correo electrónico y contraseña. El backend valida los datos, comprueba que el correo no esté registrado y almacena la contraseña como un hash generado con bcrypt.
+2. **Inicio de sesión:** el backend verifica las credenciales y genera un JWT firmado con un secreto almacenado en las variables de entorno.
+3. **Acceso a rutas privadas:** React enviará el token en la cabecera `Authorization: Bearer <token>` de las peticiones protegidas. Un middleware de Express verificará su firma y caducidad antes de permitir el acceso.
+4. **Autorización:** cada operación utilizará el identificador del usuario autenticado para filtrar los documentos de MongoDB. El backend no confiará en un identificador de usuario enviado libremente por el frontend.
+5. **Cierre de sesión:** el cliente eliminará el token y los datos de sesión almacenados. Si en el futuro se necesita invalidación inmediata de tokens o gestión avanzada de sesiones, se podrá añadir un mecanismo de revocación.
+
+
+#### Principales endpoints de la API
+
+La API se organizará por recursos, utilizando el prefijo `/api/v1` para facilitar futuras ampliaciones.
+
+| Recurso | Endpoints principales | Funcionalidad |
+| ----- | ----- | ----- |
+| **Autenticación** | `POST /auth/register` · `POST /auth/login` · `GET /auth/me` | Registro, inicio de sesión y consulta de la sesión del usuario autenticado. |
+| **Perfil** | `GET /users/me` · `PATCH /users/me` | Consulta y actualización del perfil, preferencias alimentarias, alergias e intolerancias. |
+| **Despensa** | `GET /pantry` · `POST /pantry` · `PATCH /pantry/:id` · `DELETE /pantry/:id` | Consulta, alta, actualización y eliminación de ingredientes. |
+| **Menús** | `GET /menus` · `POST /menus` · `GET /menus/:id` · `PATCH /menus/:id` | Creación y consulta de menús semanales y modificación de su planificación. |
+| **Lista de la compra** | `GET /shopping-lists` · `POST /shopping-lists` · `PATCH /shopping-lists/:id` | Consulta, creación y actualización de las listas de la compra. |
+| **Sincronización con la compra** | `POST /shopping-lists/:id/sync` | Calcula los ingredientes necesarios para el menú que no están disponibles en la despensa y los añade a la lista de la compra sin duplicarlos innecesariamente. |
+
+La planificación de menús y la generación de listas se implementarán inicialmente mediante lógica de negocio en el backend. Si se utilizan APIs externas de recetas o productos de supermercados, las llamadas se realizarán desde el servidor cuando sea necesario, manteniendo las claves privadas fuera del frontend. La disponibilidad real de APIs de Mercadona y Carrefour, así como sus condiciones de uso, deberá verificarse antes de integrar estas fuentes.
 
 ---
+
+### 3. Base de Datos (MongoDB)
+
+Se utilizará **MongoDB Atlas** como servicio de base de datos en la nube y **Mongoose** como herramienta de modelado y acceso desde Node.js. La aplicación tendrá una base de datos independiente para sus datos y utilizará identificadores `ObjectId` para relacionar los documentos.
+
+#### Colecciones principales
+
+Para el MVP se proponen cuatro colecciones principales:
+
+| Colección | Contenido y finalidad |
+| ----- | ----- |
+| **users** | Cuentas de usuario, credenciales protegidas, perfil, alergias, intolerancias, alimentos preferidos y alimentos que el usuario desea evitar. |
+| **pantry_items** | Ingredientes de la despensa de cada usuario, con nombre, cantidad, unidad de medida, ubicación de almacenamiento y fecha de caducidad opcional. |
+| **menus** | Planes semanales de comidas asociados a cada usuario, con las fechas del periodo y las comidas planificadas, incluyendo los datos necesarios para identificar las recetas seleccionadas. |
+| **shopping_lists** | Listas de la compra asociadas a cada usuario, con sus productos, cantidades y estado pendiente o comprado. Permiten registrar los ingredientes que faltan para completar un menú. |
+
+Las relaciones entre colecciones se establecerán mediante referencias a los identificadores de MongoDB. Cada documento de despensa, menú y lista de la compra incluirá una referencia al usuario propietario. De este modo, se podrá consultar y modificar la información de forma independiente para cada cuenta.
+
+Para mantener el MVP sencillo, los elementos de las comidas planificadas y los productos de cada lista de la compra podrán almacenarse como subdocumentos dentro de sus respectivas colecciones. No será necesario crear una colección independiente para cada receta o cada producto de la lista.
+
+#### Esquema de la base de datos en Mermaid
+
+El siguiente diagrama representa las relaciones propuestas entre las cuatro colecciones. Los campos mostrados son orientativos y podrán concretarse al implementar los modelos de Mongoose.
+
+```mermaid
+erDiagram
+    USERS ||--o{ PANTRY_ITEMS : contiene
+    USERS ||--o{ MENUS : planifica
+    USERS ||--o{ SHOPPING_LISTS : gestiona
+
+    USERS {
+        ObjectId _id PK
+        string email UK
+        string passwordHash
+        string name
+        array allergies
+        array intolerances
+        array likedFoods
+        array dislikedFoods
+        date createdAt
+        date updatedAt
+    }
+
+    PANTRY_ITEMS {
+        ObjectId _id PK
+        ObjectId userId FK
+        string name
+        number quantity
+        string unit
+        string location
+        date expirationDate
+        date createdAt
+        date updatedAt
+    }
+
+    MENUS {
+        ObjectId _id PK
+        ObjectId userId FK
+        date weekStart
+        date weekEnd
+        array meals
+        date createdAt
+        date updatedAt
+    }
+
+    SHOPPING_LISTS {
+        ObjectId _id PK
+        ObjectId userId FK
+        string name
+        array items
+        string status
+        date createdAt
+        date updatedAt
+    }
+```
+
+#### Validaciones, integridad y seguridad de los datos
+
+Para evitar inconsistencias y proteger la información personal, se aplicarán las siguientes medidas:
+
+- **Identificación única:** cada documento tendrá un identificador `_id`. El correo electrónico de `users` tendrá un índice único para evitar registros duplicados.
+- **Aislamiento de datos:** las consultas de despensa, menús y listas deberán incluir tanto el identificador del recurso como el del usuario autenticado.
+- **Validación de campos:** Mongoose y el backend validarán cantidades positivas, unidades permitidas, fechas coherentes y los campos obligatorios de cada documento.
+- **Integridad de la planificación:** al generar la lista de la compra, el backend comparará los ingredientes necesarios con los disponibles y calculará las cantidades faltantes. Se evitará añadir repetidamente el mismo producto por cada actualización del menú.
+- **Protección de credenciales:** la colección `users` almacenará `passwordHash`, nunca la contraseña original ni el token de sesión como sustituto de la contraseña.
+- **Índices de consulta:** se crearán índices para `users.email` y para las referencias `userId` de las colecciones principales. En función de las consultas definitivas, se podrán añadir índices compuestos por usuario y fecha.
+- **Trazabilidad temporal:** los campos `createdAt` y `updatedAt`, gestionados mediante Mongoose, facilitarán conocer cuándo se creó o modificó un documento.
+
+La colección de recetas no se considera imprescindible para el MVP. Si la aplicación obtiene recetas desde una API externa, se podrán almacenar los datos esenciales de cada receta dentro del menú semanal. Si más adelante se necesita un catálogo propio, caché de recetas, favoritos o un histórico, se podrá incorporar una colección `recipes` sin modificar la arquitectura principal.
 
 ### 3. Base de Datos (MongoDB)
 
