@@ -316,10 +316,6 @@ Para evitar inconsistencias y proteger la información personal, se aplicarán l
 - **Índices de consulta:** se crearán índices para `users.email` y para las referencias `userId` de las colecciones principales. En función de las consultas definitivas, se podrán añadir índices compuestos por usuario y fecha.
 - **Trazabilidad temporal:** los campos `createdAt` y `updatedAt`, gestionados mediante Mongoose, facilitarán conocer cuándo se creó o modificó un documento.
 
-### 3. Base de Datos (MongoDB)
-
-
----
 
 ### 4. Infraestructura y Despliegue Cloud (Stack MERN)
 
